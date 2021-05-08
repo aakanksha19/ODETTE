@@ -68,13 +68,13 @@ These commands train the specified non-BERT model on the labeled source dataset 
 - For all other flags, the values set by default are the ones used in the paper
  
 #### Running BERT models:
-<b>Step 1: Extracting and dumping BERT embeddings for dataset:</b>
+<b>Step 1: Extracting and dumping BERT embeddings for dataset:</b><br/>
 ```python dump_bert_features.py --data_dir <SOURCE_FOLDER> --target_dir <TARGET_FOLDER> --train_file <TRAIN_FILENAME> --dev_file <DEV_FILENAME> --test_file <TEST_FILENAME> --save_path <SAVE_DIR> --suffix <DATASET_NAME> --model bert```
  
 This code will create BERT embeddings for all sentences in your source and target datasets. <SAVE_DIR> is the directory where the created BERT embeddings will be dumped as pytorch tensors. <DATASET_NAME> is simply an identifier used to label the dumped BERT feature files. For a non domain adapted setting, simply ignore the --target_dir flag.<br/>
 <b>Important note:</b> Since the folder provided in --target_dir only contains raw texts, you need to run this step twice in a DA setting. In the first run, --data_dir contains source and --target_dir contains unlabeled target data. In the second run, --data_dir contains labeled target data and --target_dir can contain any valid folder of raw texts. The second run is needed in order to create a labeled target dataset dump to evaluate the adapted model on the target data.
  
-<b>Step 2: Train a domain-adapted model:</b>
+<b>Step 2: Train a domain-adapted model:</b><br/>
 ```python da_tester_new.py --data_dir <SOURCE_FOLDER> --target_dir <TARGET_FOLDER> --train_file <TRAIN_FILENAME> --dev_file <DEV_FILENAME> --test_file <TEST_FILENAME> --save_path <SAVE_DIR> --suffix <DATASET_NAME> --model bert-bilstm --model_path <MODEL_SAVE_PATH>  --adv_coeff <LAMBDA_VALUE> --do_train --do_eval``` (No adaptation)
  
 ```python da_tester_new.py --data_dir <SOURCE_FOLDER> --target_dir <TARGET_FOLDER> --train_file <TRAIN_FILENAME> --dev_file <DEV_FILENAME> --test_file <TEST_FILENAME> --save_path <SAVE_DIR> --suffix <DATASET_NAME> --model bert-bilstm --model_path <MODEL_SAVE_PATH>  --adv_coeff <LAMBDA_VALUE> --do_train --do_eval``` (With adaptation)
