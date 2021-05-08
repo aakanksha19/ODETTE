@@ -1,0 +1,6 @@
+stanford_corenlp==3.9.2
+stanfordnlp==0.2.0
+pytorch_transformers==1.1.0
+numpy==1.19.3
+torch==1.4.0
+corenlp==0.0.14
