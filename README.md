@@ -6,7 +6,7 @@ This repository contains the code for the ACL 2020 paper: "[Towards Open Domain 
 ## Code requirements
 - python 3.6 
 - library requirements in requirements.txt
-- Stanford CoreNLP models. After downloading the models, please edit the “models_dir” variable in line 332 of event_dataset.py to your model folder. I have left a TODO note there so that it’s easy to search.
+- Stanford CoreNLP models. After downloading the models, please edit the “models_dir” variable in line 332 of event_dataset.py to your model folder. A TODO note has been left there so that it’s easy to search.
 
 ## Running the code
 ### Data preprocessing
@@ -39,7 +39,7 @@ file2<br/>
 file3<br/>
  
 The target dataset should be in this format:<br/>
-target_folder<br/>
+target_folder/<br/>
 ...file1.txt<br/>
 ...file2.txt<br/>
 ...<br/>
