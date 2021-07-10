@@ -269,7 +269,7 @@ if __name__ == "__main__":
     if args.model == 'word':
         model = AdversarialEventExtractor(len(list(sent_vocab.keys())), args.emb_size, args.hidden_size, 1, args.adv_size, args.adv_layers, args.num_domains, args.adv_coeff, args.dropout, args.bidir, args.model)
     elif args.model == 'pos':
-        model = AdversarialEventExtractor(len(list(sent_vocab.keys())), args.emb_size, args.hidden_size, 1, args.adv_size, args.adv_layers, args.num_domains, args.adv_coeff, args.dropout, args.bidir, args.model, len(list(pos_vocab.keys())))
+        model = AdversarialEventExtractor(len(list(sent_vocab.keys())), args.emb_size, args.hidden_size, 1, args.adv_size, args.adv_layers, args.num_domains, args.adv_coeff, args.dropout, args.bidir, args.model, pos_vocab_size=len(list(pos_vocab.keys())))
     elif args.model.startswith('bert'):
         print('Embedding size: {}'.format(train_batches[0][0].size()[-1]))
         model = AdversarialEventExtractor(10000, train_batches[0][0].size()[-1], args.hidden_size, 1, args.adv_size, args.adv_layers, args.num_domains, args.adv_coeff, args.dropout, args.bidir, args.model)

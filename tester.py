@@ -231,7 +231,7 @@ if __name__ == "__main__":
     elif args.model == 'delex':
         model = EventExtractor(len(list(pos_vocab.keys())), args.emb_size, args.hidden_size, 1, args.dropout, args.bidir, args.model)
     elif args.model == 'pos':
-        model = EventExtractor(len(list(sent_vocab.keys())), args.emb_size, args.hidden_size, 1, args.dropout, args.bidir, args.model, len(list(pos_vocab.keys())))
+        model = EventExtractor(len(list(sent_vocab.keys())), args.emb_size, args.hidden_size, 1, args.dropout, args.bidir, args.model, pos_vocab_size=len(list(pos_vocab.keys())))
     elif args.model == 'bert-bilstm':
         print('Embedding size: {}'.format(train_batches[0][0].size()[-1]))
         model = EventExtractor(21541, train_batches[0][0].size()[-1], args.hidden_size, 1, args.dropout, args.bidir, args.model)
